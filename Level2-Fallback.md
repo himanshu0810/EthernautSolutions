@@ -39,12 +39,12 @@ To interact with the contract and become the owner, follow these steps:
    });
 
 
-4. **TVerify Ownership**: Confirm your ownership status.
+4. **Verify Ownership**: Confirm your ownership status.
    
    ```javascript
    await contract.owner();
 
-5. **TWithdraw Ether**: Execute the withdraw function to retrieve all the Ether.
+5. **Withdraw Ether**: Execute the withdraw function to retrieve all the Ether.
    
    ```javascript
    await contract.withdraw();
