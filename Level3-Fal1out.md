@@ -19,7 +19,7 @@ As it stands, anyone can call this function and become the owner. Ideally, this 
 
 To fix this, execute the following command to become the owner and verify it:
 
-   ```javascript
+   javascript
     await contract.Fal1out({value: toWei("0.00001")})
 
 Afterward, confirm the ownership using:
