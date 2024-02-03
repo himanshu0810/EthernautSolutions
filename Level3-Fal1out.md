@@ -8,10 +8,13 @@ Let's take a close look at the contract code. Have you scrutinized it line by li
 
 The issue lies in the constructor. Did you notice that the developer misspelled "Fallout"?
 
-```solidity
-/* constructor */
-function Fal1out() public payable {
-  owner = msg.sender;
-  allocations[owner] = msg.value;
-}
+  ```solidity
+  /* constructor */
+  function Fal1out() public payable {
+    owner = msg.sender;
+    allocations[owner] = msg.value;
+  }
 
+As it stands, anyone can call this function and become the owner. Ideally, this function should only be called at the creation time, not during runtime. Currently, any user can call it and become the owner, which is not the intended behavior.
+
+To fix this, execute the following command to become the owner and verify it:
