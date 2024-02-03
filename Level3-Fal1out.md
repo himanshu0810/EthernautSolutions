@@ -18,3 +18,13 @@ The issue lies in the constructor. Did you notice that the developer misspelled 
 As it stands, anyone can call this function and become the owner. Ideally, this function should only be called at the creation time, not during runtime. Currently, any user can call it and become the owner, which is not the intended behavior.
 
 To fix this, execute the following command to become the owner and verify it:
+
+   ```javascript
+    await contract.Fal1out({value: toWei("0.00001")})
+
+Afterward, confirm the ownership using:
+
+   ```javascript
+    await contract.owner()
+
+Feel free to proceed by triggering the submit instance button and advancing to Level 4. **Happy learning!**
