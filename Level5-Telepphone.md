@@ -25,3 +25,10 @@ To crack this level, we'll employ a clever strategy involving two contracts: **C
 - Dive into the code for **Contract 1** and **Contract 2** to see how they interact using `tx.origin` and `msg.sender`.
 
 - Explore how the strategy leverages these elements to secure contract ownership.
+
+
+## Clever Maneuver:
+
+When the call reaches the targeted contract, `msg.sender` and `tx.origin` will be distinct. `tx.origin` will point to Contract 1, while `msg.sender` will refer to Contract 2. This clever maneuver allows us to bypass the condition in the `changeOwner` function, enabling us to modify the owner successfully.
+
+Click the "Submit Instance" button, check the owner, and get ready to move to the next level. Secure your socks, for the journey to mastery continues!
