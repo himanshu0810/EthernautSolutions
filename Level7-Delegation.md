@@ -26,3 +26,14 @@ As we journey through the Level 5 challenge in mastering contract ownership, it'
 
 **Definition:** Method IDs are unique identifiers generated from the function signature of a smart contract method. They play a vital role in distinguishing between different functions in the contract, facilitating proper function invocation.
 
+
+If you have read till here, I believe you have gone through the important concepts above and tried to understand them. Now there is nothing left if you know the concepts really well.
+
+Just use the below command to call the pwn() and modify the owner of the delegation contract.
+
+
+    ```javascript
+    await address(contract).call(abi.encodeWithSignature("pwn()"));
+
+
+# You can confirm by checking the owner of the Delegate contract. I am sure the owner has been modified till now. Why to wait, trigger the "Submit Instance" button move to next level.
