@@ -109,3 +109,6 @@ Conclusion
 While sending ether to a contract without a fallback function may seem perplexing at first, understanding Ethereum's self-destruct mechanism provides a solution. By utilizing self-destruction and specifying the target contract, it's possible to transfer ether forcefully, even to contracts lacking a payable function or fallback mechanism.
 
 This unconventional approach demonstrates the flexibility and intricacies of Ethereum smart contracts, showcasing how various features can be creatively combined to achieve specific functionalities.
+
+### Hopefully, you will be able to follow the process. Now put on your gloves and go ahead to level 9.
+
