@@ -71,4 +71,41 @@ You can also send Ether along with data to a contract, allowing you to trigger s
 These methods provide flexibility in interacting with contracts and allow for various use cases involving Ether transfers.
 
 
+# Sending Ether to a Contract without Fallback Function
 
+In Ethereum smart contracts, typically ether can be sent to a contract by calling a payable function or via a fallback function. However, there are scenarios where a contract does not have either of these methods implemented, making it seemingly impossible to send ether to it. This situation presents a mystery: how can we send ether to such a contract?
+
+One unconventional method involves leveraging the self-destruction feature of contracts. When a contract self-destructs, it can specify another contract to which any remaining ether balance should be transferred. This mechanism can be utilized to force-send ether to a contract without a fallback function.
+
+## Implementation
+
+Here's how this can be achieved:
+
+1. **Create a Contract**: First, we create a new contract and load it with some ether.
+
+2. **Implement Self-Destruct**: Within this contract, we implement a function that triggers self-destruction and specifies the address of the target contract to receive the ether balance.
+
+        ```solidity
+        pragma solidity ^0.8.0;
+        
+        contract EtherSender {
+            address payable targetContract;
+        
+            constructor(address payable _targetContract) {
+                targetContract = _targetContract;
+            }
+        
+            // Function to self-destruct and transfer remaining ether to the target contract
+            function destroy() external {
+                selfdestruct(targetContract);
+            }
+        }
+
+Usage: Deploy this contract, providing the address of the contract without a fallback function as the targetContract.
+
+Trigger Destruction: Call the destroy function of the EtherSender contract. This action will force-send the ether balance of the EtherSender contract to the specified targetContract.
+
+Conclusion
+While sending ether to a contract without a fallback function may seem perplexing at first, understanding Ethereum's self-destruct mechanism provides a solution. By utilizing self-destruction and specifying the target contract, it's possible to transfer ether forcefully, even to contracts lacking a payable function or fallback mechanism.
+
+This unconventional approach demonstrates the flexibility and intricacies of Ethereum smart contracts, showcasing how various features can be creatively combined to achieve specific functionalities.
