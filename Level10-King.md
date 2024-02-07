@@ -58,6 +58,9 @@ To exploit the King contract, we deploy the Exploit contract and ensure that the
 
 By calling the _king() function on the King contract instance, we can confirm that our exploit contract address is now the king.
 
+    ```solidity
+    await contract._king() 
+
 Congratulations! You have successfully exploited the vulnerability in the King contract.
 
 ## Conclusion
