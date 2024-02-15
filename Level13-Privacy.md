@@ -65,5 +65,5 @@ To modify the `locked` variable to `false`, we need to unlock the contract using
    ```javascript
    await contract.locked()
 
-###Conclusion
+### Conclusion
 Understanding Solidity storage layout is essential for efficient contract design and auditing. By optimizing storage usage and accessing data effectively, developers can build more secure and cost-effective smart contracts.  
