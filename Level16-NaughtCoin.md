@@ -58,7 +58,7 @@ Here's how to execute the exploit:
 Upon successful execution, the balance of the player will reflect the transferred amount, effectively bypassing the time lock criteria.
 
     ```javascript
-    (await contract.balanceOf(player)).toString()
+    contract.transferFrom(player, player, "1000000000000000000000000");
     
 ### Conclusion
 Understanding the intricacies of inheriting contracts and exploiting token standards like ERC20 is paramount in ensuring blockchain security. By recognizing vulnerabilities and implementing appropriate measures, developers can fortify their contracts against potential exploits, safeguarding user assets and maintaining trust within the ecosystem.
