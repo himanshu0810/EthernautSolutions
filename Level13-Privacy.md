@@ -52,3 +52,18 @@ To modify the `locked` variable to `false`, we need to unlock the contract using
 1. Fetch the value from storage slot 5.
    ```javascript
    key = await web3.eth.getStorageAt(contract.address, 5)
+   
+2. Cast this to consider bytes16.
+   ```javascript
+   key = key.slice(0, 34)
+
+3. Unlock the contract by calling the below command
+   ```javascript
+   await contract.unlock(key)
+
+4. The contract should be unlocked for now. You can verify by calling the below command.
+   ```javascript
+   await contract.locked()
+
+###Conclusion
+Understanding Solidity storage layout is essential for efficient contract design and auditing. By optimizing storage usage and accessing data effectively, developers can build more secure and cost-effective smart contracts.  
