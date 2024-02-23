@@ -14,13 +14,13 @@ Privacy - Done
 Naught Coin - Done  
 Allien Codex - Done   
 Denial -  Done  
+Shop - Done  
 
 
 Preservation -   
 Magic Number -   
 Gatekeeper one -  
 Gatekeeper two -   
-Shop -   
 Dex -   
 Dex two -   
 Puzzle Wallet -   
