@@ -11,6 +11,7 @@ The GatekeeperOne contract features three modifiers, each imposing distinct cond
 ### GateOne Modifier
 
 #### Condition:
+
     ```solidity
     require(msg.sender != tx.origin);
 
