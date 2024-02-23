@@ -1,12 +1,12 @@
 Ethernaut -  
-Fallback -   
-Fallout -   
-Coin Flip -   
-Telephone -   
-Token -   
-Delegation -   
-Force -   
-Vault -   
+Fallback - Done  
+Fallout - Done     
+Coin Flip - Done     
+Telephone - Done     
+Token - Done     
+Delegation - Done     
+Force - Done     
+Vault - Done     
 king -   
 Renetrancy -   
 Elevator -   
