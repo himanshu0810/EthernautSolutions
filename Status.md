@@ -12,7 +12,7 @@ Renetrancy -  Done
 Elevator - Done     
 Privacy - Done     
 Naught Coin - Done  
-Allien Codex - Done 
+Allien Codex - Done   
 Denial -  Done  
 
 
