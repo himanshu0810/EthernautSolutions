@@ -18,11 +18,14 @@ The GatekeeperOne contract features three modifiers, each imposing distinct cond
 Strategy:
 The condition checks whether the immediate caller (msg.sender) is the original sender (tx.origin). To bypass this, we can employ a proxy contract approach. We'll deploy two contracts where the first contract calls the second one, effectively masking the original sender. This setup ensures that msg.sender will not match tx.origin, allowing us to pass the gate.
 
-GateTwo Modifier
-Condition:
+## GateTwo Modifier
+
+### Condition:
+
 
     ```solidity
     require(gasleft() % 8191 == 0);
+
 
 Strategy:
 The modifier checks if the remaining gas after the execution is a multiple of 8191. To determine the exact gas required, we need to employ a brute force approach. We'll iteratively increase the gas supplied until we find a value that satisfies the condition. By incrementing the gas in each function call within a reasonable range, we can ensure compliance with the gate's requirement.
