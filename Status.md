@@ -13,7 +13,7 @@ Elevator - Done
 Privacy - Done     
 Gatekeeper one -  
 Gatekeeper two -   
-Naught Coin -   
+Naught Coin - Done  
 Preservation -   
 Magic Number -   
 Allien Codex -   
