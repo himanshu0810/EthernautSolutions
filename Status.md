@@ -16,7 +16,7 @@ Gatekeeper two -
 Naught Coin - Done  
 Preservation -   
 Magic Number -   
-Allien Codex -   
+Allien Codex - Done  
 Denial -   
 Shop -   
 Dex -   
