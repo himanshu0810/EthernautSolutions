@@ -13,13 +13,13 @@ Elevator - Done
 Privacy - Done     
 Naught Coin - Done  
 Allien Codex - Done 
+Denial -  Done  
 
 
 Preservation -   
 Magic Number -   
 Gatekeeper one -  
 Gatekeeper two -   
-Denial -   
 Shop -   
 Dex -   
 Dex two -   
