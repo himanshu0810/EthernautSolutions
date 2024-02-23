@@ -15,11 +15,11 @@ Naught Coin - Done
 Allien Codex - Done   
 Denial -  Done  
 Shop - Done  
+Gatekeeper one -  Done  
 
 
 Preservation -   
 Magic Number -   
-Gatekeeper one -  
 Gatekeeper two -   
 Dex -   
 Dex two -   
