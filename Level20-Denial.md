@@ -40,6 +40,17 @@ Let's take a look at the DenialHack contract:
         }
     }
 
+## Deploying the Exploit
+Deploy the DenialHack contract.
+The constructor sets the deploying address as the partner.
+The fallback function contains an infinite loop, consuming all gas.
+
+
+## Conclusion
+With the DenialHack contract deployed, any attempt by the owner to withdraw funds will result in gas exhaustion, preventing the transfer to the owner. This exploit demonstrates the importance of thorough auditing and understanding of contract interactions in ensuring robust smart contract design.
+
+Now armed with this knowledge, proceed with caution, and always prioritize security in smart contract development.
+
 
 
 
