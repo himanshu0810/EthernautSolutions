@@ -7,10 +7,10 @@ Token - Done
 Delegation - Done     
 Force - Done     
 Vault - Done     
-king -   
-Renetrancy -   
-Elevator -   
-Privacy -   
+king - Done    
+Renetrancy -  Done    
+Elevator - Done     
+Privacy - Done     
 Gatekeeper one -  
 Gatekeeper two -   
 Naught Coin -   
