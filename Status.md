@@ -11,12 +11,14 @@ king - Done
 Renetrancy -  Done    
 Elevator - Done     
 Privacy - Done     
-Gatekeeper one -  
-Gatekeeper two -   
 Naught Coin - Done  
+Allien Codex - Done 
+
+
 Preservation -   
 Magic Number -   
-Allien Codex - Done  
+Gatekeeper one -  
+Gatekeeper two -   
 Denial -   
 Shop -   
 Dex -   
