@@ -21,4 +21,9 @@ Denial -
 Shop -   
 Dex -   
 Dex two -   
-
+Puzzle Wallet -   
+MotorBike -  
+DoubleEntryPoint -  
+Good Samartian -  
+Gatekeeper three -  
+Switch -     
