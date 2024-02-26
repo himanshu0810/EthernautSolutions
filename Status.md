@@ -18,10 +18,9 @@ Shop - Done
 Gatekeeper one -  Done  
 Gatekeeper two - Done  
 Preservation - Done   
-
+Dex - Done  
 
 Magic Number -   
-Dex - Done  
 Dex two -   
 Puzzle Wallet -   
 MotorBike -  
