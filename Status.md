@@ -21,7 +21,7 @@ Preservation - Done
 
 
 Magic Number -   
-Dex -   
+Dex - Done  
 Dex two -   
 Puzzle Wallet -   
 MotorBike -  
