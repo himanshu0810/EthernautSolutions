@@ -16,11 +16,10 @@ Allien Codex - Done
 Denial -  Done  
 Shop - Done  
 Gatekeeper one -  Done  
-
+Gatekeeper two - Done  
 
 Preservation -   
 Magic Number -   
-Gatekeeper two -   
 Dex -   
 Dex two -   
 Puzzle Wallet -   
