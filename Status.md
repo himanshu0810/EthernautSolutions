@@ -19,6 +19,7 @@ Gatekeeper one -  Done
 Gatekeeper two - Done  
 Preservation - Done   
 Dex - Done  
+Gatekeeper three - Done   
 
 Magic Number -   
 Dex two -   
@@ -26,6 +27,5 @@ Puzzle Wallet -
 MotorBike -  
 DoubleEntryPoint -  
 Good Samartian -  
-Gatekeeper three -  
 Switch -     
 
