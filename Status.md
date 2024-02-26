@@ -17,8 +17,9 @@ Denial -  Done
 Shop - Done  
 Gatekeeper one -  Done  
 Gatekeeper two - Done  
+Preservation - Done   
 
-Preservation -   
+
 Magic Number -   
 Dex -   
 Dex two -   
