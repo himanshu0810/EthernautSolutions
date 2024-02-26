@@ -19,7 +19,7 @@ Gatekeeper one -  Done
 Gatekeeper two - Done  
 Preservation - Done   
 Dex - Done  
-Gatekeeper three - Done   
+Gatekeeper three| - Done   
 
 Magic Number -   
 Dex two -   
